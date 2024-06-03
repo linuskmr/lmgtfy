@@ -1,16 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap');
-
 body {
 	/* Page should span the whole viewport, so 100vh.
 	However, this shows a scrollbar (so it results in more than 100vh)
 	and causes the search bar to be not perfectly centered vertically.
-	Therefore, we use a terrible hack and use 90vh because it works. */
+	Therefore, we use a terrible hack and use 95vh because it works. */
 	height: 95vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	font-family: "Inter", "Inter Tight", sans-serif;
+	font-family: sans-serif;
 }
 
 
@@ -36,7 +34,7 @@ header {
 }
 
 #browser-urlbar #url {
-	/* Let the search fill the whole line */
+	/* Let the url input fill the rest of the header line */
 	flex-grow: 1;
 }
 
@@ -70,6 +68,7 @@ button {
 }
 
 #submit-button-row {
+	/* Force search button and cursor to be on one line */
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -80,7 +79,7 @@ button {
 	/* Move cursor over the search button left to it */
 	position: relative;
 	left: -50px;
-	bottom: -5px;
+	bottom: -10px;
 	/* For better visibility, like a real cursor */
 	text-shadow: orange 0 0 20px;
 	/* Initially hidden, will be shown when JS plays the search animation */

@@ -22,7 +22,7 @@
 	await sleep(500);
 	document.getElementById('cursor').style.opacity = 1;
 
-	document.getElementById('info').innerText = "Click 'Google Search'. Was it that hard?";
+	document.getElementById('info').innerText = "Click 'Search'. Was it that hard?";
 	await sleep(5000);
 	document.getElementById('search-form').submit();
 })()

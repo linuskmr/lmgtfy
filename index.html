@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Let Me Google That For You</title>
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Icons -->
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-left.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-right.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/redo.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-top-left.css' rel='stylesheet'>
+</head>
+<body>
+	<header id="browser-urlbar">
+		<span class="icon"><i class="gg-arrow-left"></i></span>
+		<span class="icon"><i class="gg-arrow-right"></i></span>
+		<span class="icon"><i class="gg-redo"></i></span>
+		<input type="text" id="url" placeholder="Enter address">
+		<span class="icon"><i class="gg-menu"></i></span>
+	</header>
+
+	<main id="google-search">
+		<h1>Google</h1>
+
+		<form id="search-form" action="https://google.com/search" method="get">
+			<input id="query" type="text" name="q" value="" placeholder="Search..."><br><br>
+
+			<div id="submit-button-row">
+				<button type="submit">Search</button>
+				<span id="cursor"><i class="gg-arrow-top-left"></i></span>
+			</div>
+		</form>
+	</main>
+
+
+	<footer id="info"></footer>
+
+	<script src="script.js"></script>
+</body>
+</html>

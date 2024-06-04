@@ -1,9 +1,9 @@
 body {
-	/* Page should span the whole viewport, so 100vh.
-	However, this shows a scrollbar (so it results in more than 100vh)
-	and causes the search bar to be not perfectly centered vertically.
-	Therefore, we use a terrible hack and use 95vh because it works. */
-	height: 95vh;
+	/* Page should span the whole viewport; needs margin 0.
+	Apply padding to body's children instead. */
+	height: 100vh;
+	margin: 0;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -11,10 +11,14 @@ body {
 	font-family: sans-serif;
 }
 
-
+body > * {
+	/* Give all flex children a little padding */
+	padding: 10px;
+}
 
 header {
 	width: 100%;
+	box-sizing: border-box;
 }
 
 #browser-urlbar {

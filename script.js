@@ -9,19 +9,24 @@
 	urlInput.value = '';
 	queryInput.value = '';
 
+	// Enter google.com into the URL input field
 	document.getElementById('info').innerText = "1. Go to google.com";
 	await sleep(2000);
 	await typeIntoInputField(urlInput, "https://google.com");
 
-	// Show Google search page
+	// Show the Google search website
 	document.getElementById('google-search').style.opacity = 1;
 
+	// Enter the search query into the query input field
 	document.getElementById('info').innerText = "2. Enter your search query";
 	await sleep(2000);
 	await typeIntoInputField(queryInput, queryUrlParameter, 150);
+
+	// Show the cursor
 	await sleep(500);
 	document.getElementById('cursor').style.opacity = 1;
 
+	// Redirect to Google search results page
 	document.getElementById('info').innerText = "Click 'Search'. Was it that hard?";
 	await sleep(5000);
 	document.getElementById('search-form').submit();

@@ -1,3 +1,5 @@
+const finalCursorPosition = { bottom: "-35px", left: "-40px" };
+
 (async () => {
 	const queryUrlParameter = new URLSearchParams(window.location.search).get('q');
 	const urlInput = document.getElementById('url');
@@ -21,6 +23,9 @@
 	await typeIntoInputField(queryInput, queryUrlParameter, 150);
 	await sleep(500);
 	document.getElementById('cursor').style.opacity = 1;
+	document.getElementById('google-search-button').focus(); // Hightlight the search button
+	document.getElementById('cursor').style.bottom = finalCursorPosition.bottom;
+	document.getElementById('cursor').style.left = finalCursorPosition.left;
 
 	document.getElementById('info').innerText = "Click 'Search'. Was it that hard?";
 	await sleep(5000);

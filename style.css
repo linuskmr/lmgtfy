@@ -58,6 +58,14 @@ main {
 	flex-direction: column;
 	align-items: center;
 	transition: opacity 0.25s ease;
+	width: 100%;
+}
+
+#search-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
 }
 
 
@@ -71,7 +79,10 @@ input[type="text"] {
 }
 
 #query {
-	width: 100%;
+	/* Implement wide enough search bar which is also reponsive */
+	max-width: 584px;
+	width: 90%;
+	margin-bottom: 15px;
 }
 
 button {

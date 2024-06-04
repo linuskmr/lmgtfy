@@ -22,7 +22,6 @@ body {
 	color: var(--primary);
 }
 
-
 #browser-urlbar {
 	/* Ensure icons and search bar are on one line and not line-broken */
 	display: flex;

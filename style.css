@@ -1,33 +1,36 @@
-body {
-	/* Page should span the whole viewport; needs margin 0.
-	Apply padding to body's children instead. */
-	height: 100vh;
-	margin: 0;
+:root {
+	/* Define Colors */
+	--bg-color: #2e3440;
+	--bright-bg-color: #434c5e;
+	--primary: #d8dee9;
+	--ggs: 1;
+}
 
+html,
+body {
+	/* Use body as root flex element */
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	font-family: sans-serif;
-}
-
-body > * {
-	/* Give all flex children a little padding */
-	padding: 10px;
-}
-
-header {
-	width: 100%;
-	box-sizing: border-box;
+	background-color: var(--bg-color);
+	color: var(--primary);
 }
 
 #browser-urlbar {
 	/* Ensure icons and search bar are on one line and not line-broken */
 	display: flex;
 	flex-wrap: nowrap;
+	align-self: stretch;
 	/* vertical centering of icons and search bar with different line heights */
 	align-items: center;
 	padding: 5px;
+	margin: 5px;
 	border: 1px solid;
 	border-radius: 5px;
 }
@@ -40,6 +43,7 @@ header {
 #browser-urlbar #url {
 	/* Let the url input fill the rest of the header line */
 	flex-grow: 1;
+	margin: 0 5px;
 }
 
 
@@ -50,17 +54,34 @@ main {
 	/* Initially hidden, will be shown when JS plays the search animation */
 	opacity: 0;
 	transition: opacity 0.5s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
 }
+
+#search-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
 
 input[type="text"] {
 	padding: 10px;
 	font-size: 16px;
-	border: 1px solid #ccc;
+	border: 1px solid var(--bright-bg-color);
 	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: var(--primary);
 }
 
-input.query {
-	width: 50%;
+#query {
+	/* Implement wide enough search bar which is also reponsive */
+	max-width: 584px;
+	width: 90%;
+	margin-bottom: 15px;
 }
 
 button {
@@ -69,6 +90,13 @@ button {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+	border: 1px solid var(--bright-bg-color);
+	background-color: var(--bright-bg-color);
+	color: var(--primary);
+}
+
+button:hover {
+	border: 1px solid var(--primary);
 }
 
 #submit-button-row {
@@ -79,14 +107,23 @@ button {
 }
 
 #cursor {
-	font-size: 30px;
 	/* Move cursor over the search button left to it */
 	position: relative;
-	left: -50px;
-	bottom: -10px;
+	left: 20px;
+	bottom: -70px;
 	/* For better visibility, like a real cursor */
 	text-shadow: orange 0 0 20px;
 	/* Initially hidden, will be shown when JS plays the search animation */
 	opacity: 0;
-	transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease, bottom 1.5s ease, left 1.5s ease;
+}
+
+#cursor i {
+	/* Increase cursor size */
+	transform: scale(2) !important;
+}
+
+#info {
+	margin-bottom: 5em;
+	font-size: 1.5em;
 }

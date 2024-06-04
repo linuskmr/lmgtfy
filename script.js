@@ -35,7 +35,9 @@
  * @param {int} delay in ms between each character being typed.
  */
 async function typeIntoInputField(inputField, text, delay = 100) {
-	for (const char of text.split('')) {
+	// Don't use `for (const char in text.split(''))` to iterate through the chars of a string
+	// because it doesn't handle UTF-8 characters correctly, see https://stackoverflow.com/a/34717402/14350146
+	for (const char of text) {
 		inputField.focus();
 		inputField.value += char;
 		await sleep(delay);

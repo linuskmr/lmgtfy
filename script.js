@@ -1,3 +1,5 @@
+const finalCursorPosition = { bottom: "-35px", left: "-40px" };
+
 (async () => {
 	const queryUrlParameter = new URLSearchParams(window.location.search).get('q');
 	const urlInput = document.getElementById('url');
@@ -9,24 +11,22 @@
 	urlInput.value = '';
 	queryInput.value = '';
 
-	// Enter google.com into the URL input field
 	document.getElementById('info').innerText = "1. Go to google.com";
 	await sleep(2000);
 	await typeIntoInputField(urlInput, "https://google.com");
 
-	// Show the Google search website
+	// Show Google search page
 	document.getElementById('google-search').style.opacity = 1;
 
-	// Enter the search query into the query input field
 	document.getElementById('info').innerText = "2. Enter your search query";
 	await sleep(2000);
 	await typeIntoInputField(queryInput, queryUrlParameter, 150);
-
-	// Show the cursor
 	await sleep(500);
 	document.getElementById('cursor').style.opacity = 1;
+	document.getElementById('google-search-button').focus(); // Hightlight the search button
+	document.getElementById('cursor').style.bottom = finalCursorPosition.bottom;
+	document.getElementById('cursor').style.left = finalCursorPosition.left;
 
-	// Redirect to Google search results page
 	document.getElementById('info').innerText = "Click 'Search'. Was it that hard?";
 	await sleep(5000);
 	document.getElementById('search-form').submit();
@@ -40,9 +40,7 @@
  * @param {int} delay in ms between each character being typed.
  */
 async function typeIntoInputField(inputField, text, delay = 100) {
-	// Don't use `for (const char in text.split(''))` to iterate through the chars of a string
-	// because it doesn't handle UTF-8 characters correctly, see https://stackoverflow.com/a/34717402/14350146
-	for (const char of text) {
+	for (const char of text.split('')) {
 		inputField.focus();
 		inputField.value += char;
 		await sleep(delay);
